@@ -31,7 +31,7 @@ or just
 
 ### Test
 
-`npm test` runs a Jest test that sends 100 fake destinations and drivers to `shipment.assignDrivers()`.
+`npm test` runs a Jest test that sends 100 random, fake destinations and drivers to `shipment.assignDrivers()` and validates that each destination is matched with a driver.
 
 ### Assumptions
 - Number of destinations and drivers will be the same

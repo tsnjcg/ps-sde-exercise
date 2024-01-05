@@ -29,6 +29,10 @@ or just
 
 `npm run fake`
 
+### Test
+
+`npm test` runs a Jest test that sends 100 fake destinations and drivers to `shipment.assignDrivers()`.
+
 ### Assumptions
 - Number of destinations and drivers will be the same
 - Format of destination will always be `123 Main St., Anywhere, NA 00000`

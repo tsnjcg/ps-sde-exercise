@@ -34,8 +34,10 @@ or just
 `npm test` runs a Jest test that sends 100 random, fake destinations and drivers to `shipment.assignDrivers()` and validates that each destination is matched with a driver.
 
 ### Assumptions
+
 - Number of destinations and drivers will be the same
 - Format of destination will always be `123 Main St., Anywhere, NA 00000`
 
 ### Author
+
 Josh Guardino

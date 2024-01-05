@@ -14,7 +14,8 @@ const assignDrivers = (destinations, drivers) => {
 		return {
 			name,
 			vowels: name.match(/[aeiou]/gi).length,
-			consonants: name.match(/[bcdfghjklmnpqrstvwxyz]/gi).length
+			consonants: name.match(/[bcdfghjklmnpqrstvwxyz]/gi).length,
+			factors: findFactors(name.length)
 		}
 	});
 
@@ -25,6 +26,8 @@ const assignDrivers = (destinations, drivers) => {
 		const [ streetAddress ] = destination.split(',');
 		// Use a regex to extract the street number and name from the address
 		const { streetNumber, streetName } = streetAddress.match(/^(?<streetNumber>.*?)\s+(?<streetName>.*)/).groups;
+		// Compute factors of the length of the street name
+		const streetFactors = findFactors(streetName.length);
 		// Variable to store the top-scoring driver
 		let topDriver;
 		// Loop through all drivers not previously assigned
@@ -34,9 +37,7 @@ const assignDrivers = (destinations, drivers) => {
 			let score = (streetName.length % 2 === 0 ? driver.vowels * 1.5 : driver.consonants);
 			// Multiply the score by 1.5 if the length of the street name and length of the driver
 			// name have common factors other than 1
-			if (intersection(findFactors(streetName.length), findFactors(driver.name.length)).length > 0) {
-				score *= 1.5;
-			}
+			if (intersection(streetFactors, driver.factors).length > 0) score *= 1.5;
 			// If score exceeds the current leader, replace the current leader with this driver
 			if (!topDriver || score > topDriver.score) {
 				topDriver = driver;

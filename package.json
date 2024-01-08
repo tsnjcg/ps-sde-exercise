@@ -1,7 +1,7 @@
 {
 	"name": "ps-sde-exercise",
 	"version": "1.0.0",
-	"description": "Platform Science SDE Exercise",
+	"description": "PS SDE Exercise",
 	"scripts": {
 		"start": "node src/cli",
 		"test": "jest",
